@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Security.Cryptography;
 
 namespace file_upload.Controllers
 {
@@ -24,12 +25,13 @@ namespace file_upload.Controllers
         {
             try
             {
+                SHA256 Sha256 = SHA256.Create();
+
                 var file = Request.Form.Files[0];
 
-                var returnString = file.Length.ToString();
+                //var returnString = file.Length.ToString();
 
-                return Content(returnString);
-
+                return Content(BitConverter.ToString(Sha256.ComputeHash(file.OpenReadStream())).Replace("-", ""));
             }
             catch (System.Exception e)
             {

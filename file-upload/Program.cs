@@ -20,7 +20,12 @@ namespace file_upload
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.ConfigureKestrel((context, options) =>
+                {
+                    // Handle requests up to 50 MB
+                    options.Limits.MaxRequestBodySize = 50000000000;
+                })
+                .UseStartup<Startup>();
                 });
     }
 }

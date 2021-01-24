@@ -14,17 +14,22 @@ namespace file_upload
             return BitConverter.ToString(Sha256.ComputeHash(File)).Replace("-", "");
         }
 
-        public static String GetPath(Microsoft.AspNetCore.Http.IFormFile File) {
+        public static String GetPath(Microsoft.AspNetCore.Http.IFormFile File, Boolean tmp) {
 
-            String filePath = @"./uploads/" + ComputeHash(File.OpenReadStream()) + FileExtention.GetExtention(File);
+            String folder;
 
+            if(tmp) {
+                folder = "tmp";
+            } else {
+                folder = "uploads";
+            }
+
+            String filePath = @"./" + folder + "/" + GetFileName(File);
+            Console.WriteLine(filePath);
             return filePath;
         }
-
-        public static String GetFileExtention() {
-
-
-            return "";
+        public static String GetFileName(Microsoft.AspNetCore.Http.IFormFile File) {
+            return ComputeHash(File.OpenReadStream()) + FileExtention.GetExtention(File);
         }
     }
 }

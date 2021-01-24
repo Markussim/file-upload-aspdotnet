@@ -26,9 +26,9 @@ namespace file_upload.Controllers
         {
             try
             {
-                Microsoft.AspNetCore.Http.IFormFile file = Request.Form.Files[0];                
+                Microsoft.AspNetCore.Http.IFormFile file = Request.Form.Files[0];
 
-                file.CopyTo(new FileStream(FilepathUtils.GetPath(file), FileMode.Create));
+                SaveFileUtils.SaveFile(file);
 
                 return Content(file.ContentType);
             }

@@ -10,10 +10,10 @@ namespace file_upload
     {
         public static void ZipIFormFile(string path, Microsoft.AspNetCore.Http.IFormFile File)
         {
-            FileStream fileStream = new FileStream(path + ".zip", FileMode.Create);
-            ZipArchive archive = new ZipArchive(fileStream, ZipArchiveMode.Create);
-            var demoFile = archive.CreateEntry(FilepathUtils.GetPath(File, true));
-            Console.WriteLine("maybve saved a file idk");
+            using (var archive = ZipFile.Open(path + ".zip", ZipArchiveMode.Create))
+            {
+                archive.CreateEntryFromFile(FilepathUtils.GetPath(File, true), File.FileName);
+            }
         }
     }
 }

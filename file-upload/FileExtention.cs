@@ -7,7 +7,7 @@ namespace file_upload
 {
     abstract public class FileExtention
     {
-        private static String[,] mediaTypes = new String[,] { { "image/png", ".png" }, { "image/jpeg", ".jpg" } };
+        private static String[,] mediaTypes = new String[,] { { "image/png", ".png" }, { "image/jpeg", ".jpg" }, { "application/zip", ".zip" } };
 
         public static String GetExtention(Microsoft.AspNetCore.Http.IFormFile file)
         {

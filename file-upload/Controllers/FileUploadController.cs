@@ -28,9 +28,9 @@ namespace file_upload.Controllers
             {
                 Microsoft.AspNetCore.Http.IFormFile file = Request.Form.Files[0];
 
-                SaveFileUtils.SaveFile(file);
+                
 
-                return Content(file.ContentType);
+                return Content(SaveFileUtils.SaveFile(file));
             }
             catch (System.Exception e)
             {

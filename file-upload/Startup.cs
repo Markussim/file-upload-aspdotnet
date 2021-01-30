@@ -45,6 +45,8 @@ namespace file_upload
 
             app.UseRouting();
 
+            app.UseCors();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -54,7 +56,7 @@ namespace file_upload
 
             app.UseFileServer("/image");
 
-            app.UseCors();
+            
 
         }
     }

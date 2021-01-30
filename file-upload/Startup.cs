@@ -46,6 +46,9 @@ namespace file_upload
 
             app.UseRouting();
 
+            app.UseCors(builder =>
+                builder.WithOrigins("https://marksism.space"));
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -55,8 +58,7 @@ namespace file_upload
 
             app.UseFileServer("/image");
 
-            app.UseCors(builder =>
-                builder.WithOrigins("https://marksism.space"));
+            
 
         }
     }

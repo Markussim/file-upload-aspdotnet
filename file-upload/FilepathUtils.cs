@@ -21,7 +21,7 @@ namespace file_upload
             if(tmp) {
                 folder = "tmp";
             } else {
-                folder = "uploads";
+                folder = "image";
             }
 
             String filePath = @"./" + folder + "/" + GetFileName(File);

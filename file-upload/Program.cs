@@ -20,7 +20,7 @@ namespace file_upload
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseWebRoot("./uploads");
+                    webBuilder.UseWebRoot("./image");
                     webBuilder.ConfigureKestrel((context, options) =>
                 {
                     // Handle requests up to 500 MB

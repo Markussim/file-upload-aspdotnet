@@ -14,10 +14,12 @@ namespace file_upload.Controllers
     [Route("/")]
     public class FileUploadController : ControllerBase
     {
+        String uploadHtml = System.IO.File.ReadAllText(@"./data/upload.html");
+
         [HttpGet]
         public ActionResult FrontEnd()
         {
-            return Content(System.IO.File.ReadAllText(@"./data/upload.html"), "text/html");
+            return Content(uploadHtml, "text/html");
         }
 
         [HttpPost]

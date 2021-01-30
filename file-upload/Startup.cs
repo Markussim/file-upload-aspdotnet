@@ -52,7 +52,7 @@ namespace file_upload
                 endpoints.MapControllers();
             });
 
-            app.UseFileServer("/uploads");
+            app.UseFileServer("/image");
 
         }
     }

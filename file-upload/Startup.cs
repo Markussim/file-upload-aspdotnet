@@ -54,6 +54,8 @@ namespace file_upload
 
             app.UseFileServer("/image");
 
+            app.UseCors();
+
         }
     }
 }

@@ -349,7 +349,8 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-image
+# Upload folders
+image/
 tmp
-!index.html
+!/file-upload/image/index.html
 !.gitkeep

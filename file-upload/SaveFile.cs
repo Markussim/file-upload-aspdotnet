@@ -26,6 +26,8 @@ namespace file_upload
                 {
                     ZipFileUtils.ZipIFormFile(FilepathUtils.GetPath(file, false), file);
 
+                    File.Delete(FilepathUtils.GetPath(file, true));
+
                     path = (FilepathUtils.GetPath(file, false) + ".zip").Substring(1);
                 }
             }

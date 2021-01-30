@@ -23,7 +23,7 @@ namespace file_upload.Controllers
             return Content(uploadHtml, "text/html");
         }
 
-        [EnableCors]
+        [EnableCors("MyPolicy")]
         [HttpPost]
         [RequestFormLimits(ValueLengthLimit = int.MaxValue, MultipartBodyLengthLimit = int.MaxValue)]
         public ActionResult Upload()

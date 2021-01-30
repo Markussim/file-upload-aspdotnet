@@ -42,9 +42,6 @@ namespace file_upload
                 {
                     path = (FilepathUtils.GetPath(file, false) + ".zip").Substring(1);
                 }
-
-
-                throw;
             }
 
             System.Console.WriteLine(path);

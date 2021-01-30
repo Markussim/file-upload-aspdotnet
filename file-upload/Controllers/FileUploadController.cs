@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.IO;
+using Microsoft.AspNetCore.Cors;
 
 
 namespace file_upload.Controllers
@@ -22,6 +23,7 @@ namespace file_upload.Controllers
             return Content(uploadHtml, "text/html");
         }
 
+        [EnableCors]
         [HttpPost]
         [RequestFormLimits(ValueLengthLimit = int.MaxValue, MultipartBodyLengthLimit = int.MaxValue)]
         public ActionResult Upload()

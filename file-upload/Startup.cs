@@ -31,7 +31,7 @@ namespace file_upload
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "file_upload", Version = "v1" });
             });
-            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +46,9 @@ namespace file_upload
 
             app.UseRouting();
 
+            app.UseCors(builder =>
+                builder.WithOrigins("https://marksism.space"));
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -55,7 +58,7 @@ namespace file_upload
 
             app.UseFileServer("/image");
 
-            
+
 
         }
     }

@@ -17,7 +17,6 @@ namespace file_upload
 
             for (byte i = 0; i < mediaTypes.GetLength(0); i++)
             {
-                System.Console.WriteLine(mediaType);
                 if(mediaType == mediaTypes[i,0]) {
                     returnString = mediaTypes[i,1];
                     break;

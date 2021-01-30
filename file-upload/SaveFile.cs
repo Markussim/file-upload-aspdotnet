@@ -12,35 +12,43 @@ namespace file_upload
         {
             Boolean knownExt = FileExtention.GetExtention(file) != null;
 
+            String path = null;
+
             try
             {
                 file.CopyTo(new FileStream(FilepathUtils.GetPath(file, !knownExt), FileMode.Create));
-            }
-            catch (System.Exception)
-            {
+
                 if (knownExt)
                 {
-                    return FilepathUtils.GetPath(file, false).Substring(1);
+                    path = FilepathUtils.GetPath(file, false).Substring(1);
                 }
                 else
                 {
-                    return (FilepathUtils.GetPath(file, false) + ".zip").Substring(1);
+                    ZipFileUtils.ZipIFormFile(FilepathUtils.GetPath(file, false), file);
+
+                    path = (FilepathUtils.GetPath(file, false) + ".zip").Substring(1);
                 }
+            }
+            catch (System.Exception)
+            {
+
+                if (knownExt)
+                {
+                    path = FilepathUtils.GetPath(file, false).Substring(1);
+                }
+                else
+                {
+                    path = (FilepathUtils.GetPath(file, false) + ".zip").Substring(1);
+                }
+
+
                 throw;
             }
 
+            System.Console.WriteLine(path);
+            return path;
 
-            if (knownExt)
-            {
-                System.Console.WriteLine("Saved file with know ext");
-                return FilepathUtils.GetPath(file, false).Substring(1);
-            }
-            else
-            {
-                ZipFileUtils.ZipIFormFile(FilepathUtils.GetPath(file, false), file);
 
-                return (FilepathUtils.GetPath(file, false) + ".zip").Substring(1);
-            }
 
         }
     }

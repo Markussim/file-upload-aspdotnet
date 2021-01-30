@@ -25,7 +25,6 @@ namespace file_upload
             }
 
             String filePath = @"./" + folder + "/" + GetFileName(File);
-            Console.WriteLine(filePath);
             return filePath;
         }
         public static String GetFileName(Microsoft.AspNetCore.Http.IFormFile File) {

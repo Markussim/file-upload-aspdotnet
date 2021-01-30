@@ -11,7 +11,7 @@ using System.IO;
 namespace file_upload.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("/")]
     public class FileUploadController : ControllerBase
     {
         [HttpGet]
@@ -27,8 +27,6 @@ namespace file_upload.Controllers
             try
             {
                 Microsoft.AspNetCore.Http.IFormFile file = Request.Form.Files[0];
-
-                
 
                 return Content(SaveFileUtils.SaveFile(file));
             }

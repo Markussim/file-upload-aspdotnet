@@ -23,10 +23,12 @@ namespace file_upload.Controllers
             return Content(uploadHtml, "text/html");
         }
 
+
         [HttpPost]
         [RequestFormLimits(ValueLengthLimit = int.MaxValue, MultipartBodyLengthLimit = int.MaxValue)]
         public ActionResult Upload()
         {
+            
             try
             {
                 Microsoft.AspNetCore.Http.IFormFile file = Request.Form.Files[0];

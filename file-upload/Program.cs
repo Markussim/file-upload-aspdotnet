@@ -24,8 +24,8 @@ namespace file_upload
                     webBuilder.UseUrls("http://*:9839");
                     webBuilder.ConfigureKestrel((context, options) =>
                 {
-                    // Handle requests up to 500 MB
-                    options.Limits.MaxRequestBodySize = 500000000;
+                    // Handle requests up to 300 MB
+                    options.Limits.MaxRequestBodySize = 300000000;
                 })
                 .UseStartup<Startup>();
                 });

@@ -21,6 +21,7 @@ namespace file_upload
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseWebRoot("./image");
+                    webBuilder.UseUrls("http://*:9839");
                     webBuilder.ConfigureKestrel((context, options) =>
                 {
                     // Handle requests up to 500 MB
